@@ -25,10 +25,6 @@ export function render(pushups) {
     goalText.text = `Goal: ${pushups.settings.goal} pushups`;
 }
 
-function maybePlural(text, count) {
-    return text + count === 1 ? '' : 's';
-}
-
 export function onAddClickLongPress(onClick, onLongPress) {
     attachClickLongPressListener(addButton, onClick, onLongPress);
 }
