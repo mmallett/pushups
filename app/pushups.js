@@ -25,19 +25,15 @@ Pushups DB schema
 export class Pushups {
     constructor() {
         this._pushupData = this._readOrCreateDb();
-        console.log('constructor', JSON.stringify(this._pushupData));
     }
 
     get today() {
-        console.log('get today');
         const id = this._getTodayId();
         const record = this._findRecordById(id);
         if (record) {
-            console.log('record found', id, JSON.stringify(record));
             return record;
         }
 
-        console.log('return new record');
         const newRecord = {
             pushups: 0,
             goalMet: false,
@@ -76,7 +72,6 @@ export class Pushups {
     }
 
     _findRecordById(id) {
-        console.log(id, JSON.stringify(this._pushupData));
         return this._pushupData.pushups[id];
     }
 
@@ -89,25 +84,21 @@ export class Pushups {
     }
 
     _writeDb() {
-        console.log('scheduling async write');
         // schedule async write to keep the app responsive
         // don't block on IO
         if (this._writeTimeout) {
             clearTimeout(this._writeTimeout);
         }
         this._writeTimeout = setTimeout(() => {
-            console.log('writing db', JSON.stringify(this._pushupData));
             fs.writeFileSync(PUSHUP_DB_FILE, this._pushupData, 'cbor'); 
         }, 500);        
     }
 
     _readOrCreateDb() {
-        // if (fs.existsSync(PUSHUP_DB_FILE)) {
-        //     console.log('using existing db');
-        //     return fs.readFileSync(PUSHUP_DB_FILE, 'cbor');
-        // }
+        if (fs.existsSync(PUSHUP_DB_FILE)) {
+            return fs.readFileSync(PUSHUP_DB_FILE, 'cbor');
+        }
 
-        console.log('create new db');
         fs.writeFileSync(PUSHUP_DB_FILE, INITIAL_PUSHUP_DB, 'cbor');
         return INITIAL_PUSHUP_DB;
     }
