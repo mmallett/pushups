@@ -53,13 +53,15 @@ function attachClickLongPressListener(element, onClick, onLongPress) {
         }, LONG_PRESS_TIMEOUT);
     });
 
-    element.addEventListener('mouseup', (e) => {
+    const onMouseup = (e) => {
         clearTimeout(longPressTimeout);
         clearInterval(longPressInterval);
         if (!longPressTriggered) {
             onClick();
         }
-    });    
+    }
+    element.addEventListener('mouseup', onMouseup);
+    element.addEventListener('mouseout', onMouseup);  
 }
 
 export function showView(view) {
