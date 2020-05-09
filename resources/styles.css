@@ -1,0 +1,75 @@
+#background {
+  width: 100%;
+  height: 100%;
+  fill: black;
+}
+
+.header {
+  x: 7;
+  y: 40;
+  fill: fb-white;
+  font-size: 40;
+}
+
+#txt-count {
+  x: 105;
+  y: 50%+30;
+  fill: fb-peach;
+  font-size: 120;
+  text-length: 4;
+}
+
+#txt-pushups {
+  x: 110;
+  y: 50%+60;
+  fill: fb-white;
+  font-size: 30;
+  text-length: 7;
+}
+
+.arc-goal {
+  x: 10;
+  y: 50%-45;
+  height: 75;
+  width: 75;
+  start-angle: 0;
+}
+
+#arc-goal-outline {
+  sweep-angle: 360;
+  arc-width: 2;
+  fill: fb-dark-gray;
+}
+
+#arc-goal-progress {
+  sweep-angle: 0;
+  arc-width: 6;
+  fill: fb-peach;
+}
+
+#img-goal-complete {
+  fill: fb-peach;
+  width: 35;
+  height: 35;
+  x: 31;
+  y: 50%-23;
+}
+
+.settings-text {
+  fill: fb-white;
+  x: 7;
+}
+
+.settings-button {
+  width: 50%;
+  x: 0;
+  y: 10;
+  fill: fb-light-gray;
+}
+.settings-button.right {
+  x: 50%;
+}
+
+#btn-save-settings {
+  y: 100%-70;
+}

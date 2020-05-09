@@ -1,0 +1,47 @@
+<svg>
+  <rect id="background" />
+
+  <rect id="main-view" class="view">
+    <text id="txt-today" class="header">Today</text>
+    <arc id="arc-goal-outline" class="arc-goal"/>
+    <arc id="arc-goal-progress" class="arc-goal"/>
+    <image id="img-goal-complete" href="btn_combo_check_p.png" display="none"/>
+    <text id="txt-count">0</text>
+    <text id="txt-pushups">pushups</text>
+
+    <!-- TOP RIGHT -->
+    <use id="btn-settings" href="#combo-button-upper-right" fill="fb-white">
+      <set href="combo-button-icon" attributeName="href" to="btn_combo_cog_p.png"/>
+      <set href="combo-button-icon-press" attributeName="href" to="btn_combo_cog_p.png"/>
+    </use>
+    <!-- BOTTOM RIGHT -->
+    <use id="btn-add" href="#combo-button-lower-right" fill="fb-peach">
+      <set href="combo-button-icon" attributeName="href" to="sqr_btn_plus_p.png"/>
+      <set href="combo-button-icon-press" attributeName="href" to="sqr_btn_plus_p.png"/>
+      <set href="combo-button-stroke" attributeName="display" to="inline"/>
+    </use>
+
+    <use id="btn-sub" href="#combo-button-lower-left" fill="fb-white">
+      <set href="combo-button-icon" attributeName="href" to="sqr_btn_minus_p.png"/>
+      <set href="combo-button-icon-press" attributeName="href" to="sqr_btn_minus_p.png"/>
+      <set href="combo-button-stroke" attributeName="display" to="inline"/>
+    </use>
+  </rect>
+
+  <rect id="settings-view" class="view" display="none">
+    <text id="txt-settings" class="header">Settings</text>
+    <section y="$">
+      <text id="txt-goal" class="settings-text" y="0">Goal: 30 pushups</text>
+      <use id="btn-sub-goal" class="settings-button" href="#square-button">
+        <set href="#text" attributeName="text-buffer" to="-"/>
+      </use>
+      <use id="btn-add-goal" class="settings-button right" href="#square-button">
+        <set href="#text" attributeName="text-buffer" to="+"/>
+      </use>
+    </section>
+
+    <use id="btn-save-settings" href="#square-button-positive">
+      <set href="#text" attributeName="text-buffer" to="save" />
+    </use>
+  </rect>
+</svg>
