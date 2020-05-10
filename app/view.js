@@ -39,6 +39,7 @@ function attachClickLongPressListener(element, onClick, onLongPress) {
     let longPressTimeout;
     let longPressInterval;
     let longPressTriggered;
+    let clickEnded;
 
     const longPressCallback = () => {
         longPressTriggered = true;
@@ -46,6 +47,7 @@ function attachClickLongPressListener(element, onClick, onLongPress) {
         onLongPress();
     };
     element.addEventListener('mousedown', () => {
+        clickEnded = false;
         longPressTriggered = false;
         longPressTimeout = setTimeout(() => {
             longPressCallback();
@@ -54,11 +56,15 @@ function attachClickLongPressListener(element, onClick, onLongPress) {
     });
 
     const onMouseup = (e) => {
+        if (clickEnded) {
+            return;
+        }
         clearTimeout(longPressTimeout);
         clearInterval(longPressInterval);
         if (!longPressTriggered) {
             onClick();
         }
+        clickEnded = true;
     }
     element.addEventListener('mouseup', onMouseup);
     element.addEventListener('mouseout', onMouseup);  
