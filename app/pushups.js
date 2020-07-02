@@ -44,6 +44,26 @@ export class Pushups {
         return newRecord;
     }
 
+    get week() {
+        const LABELS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+        const MS_PER_DAY = 864e5;
+        const today = new Date();
+        return [...Array(7).keys()]
+        .map(i => 
+            new Date(today.getValue() - MS_PER_DAY * i))
+        .map(date => {
+            const id = this._getIdFromDate(date);
+            const record = this._findRecordById(id) || {
+                pushups: 0,
+                goalMet: false
+            };
+            return {
+                ...record,
+                label: LABELS[date.getDay()],
+            };
+        });
+    }
+
     get settings() {
         return this._pushupData.settings;
     }
