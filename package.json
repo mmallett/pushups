@@ -10,7 +10,7 @@
   "fitbit": {
     "appUUID": "f15251f4-9d44-44ba-9cf0-600fe64a149c",
     "appType": "app",
-    "appDisplayName": "Pushups",
+    "appDisplayName": "Push-ups",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
     "requestedPermissions": [],

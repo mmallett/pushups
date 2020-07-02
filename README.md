@@ -1,8 +1,8 @@
-# Pushups
+# Push-ups
 
-Fitbit OS app to track daily pushups
+Fitbit OS app to track daily push-ups
 
-![Pushups](https://github.com/mmallett/pushups/blob/master/screenshots/pushups_today.gif?raw=true)
+![Push-ups](https://github.com/mmallett/pushups/blob/master/screenshots/pushups_today.gif?raw=true)
 
 ## Run
 
