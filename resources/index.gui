@@ -29,14 +29,29 @@
     <use id="week-view-item" href="#panoramaview-item">
       <rect width="100%" height="100%">
         <text id="txt-week" class="header">Week</text>
+
+        <svg id="week-chart">
+          <rect id="week-data-1" class="week-data" />
+          <rect id="week-data-2" class="week-data" />
+          <rect id="week-data-3" class="week-data" />
+          <rect id="week-data-4" class="week-data" />
+          <rect id="week-data-5" class="week-data" />
+          <rect id="week-data-6" class="week-data" />
+          <rect id="week-data-7" class="week-data" />
+
+          <text id="week-text-1" class="week-text">S</text>
+          <text id="week-text-2" class="week-text">M</text>
+          <text id="week-text-3" class="week-text">T</text>
+          <text id="week-text-4" class="week-text">W</text>
+          <text id="week-text-5" class="week-text">T</text>
+          <text id="week-text-6" class="week-text">F</text>
+          <text id="week-text-7" class="week-text">S</text>
+        </svg>
+
       </rect>
-    </use>
-    <use id="month-view-item" href="#panoramaview-item">
-      <rect width="100%" height="100%" fill="blue" />
     </use>
 
     <use id="pagination-dots" href="#pagination-widget" y="8">
-      <use href="#pagination-dot" />
       <use href="#pagination-dot" />
       <use href="#pagination-dot" />
       <use href="#pagination-highlight-dot" />

@@ -55,6 +55,93 @@
   y: 50%-23;
 }
 
+/* Week Slide */
+
+#week-chart {
+  x: 1%;
+  y: 70;
+  height: 100%-70;
+  width: 98%;
+}
+
+.week-data {
+  fill: fb-peach;
+  width: 13%;
+  height: 100%;
+}
+
+#week-data-1 {
+  x: 0;
+  y: 99%;
+}
+
+#week-data-2 {
+  x: 14%;
+  y: 80%;
+}
+
+#week-data-3 {
+  x: 28%;
+  y: 60%;
+}
+
+#week-data-4 {
+  x: 42%;
+  y: 40%;
+}
+
+#week-data-5 {
+  x: 56%;
+  y: 20%;
+}
+
+#week-data-6 {
+  x: 70%;
+  y: 10%;
+}
+
+#week-data-7 {
+  x: 84%;
+  y: 0;
+}
+
+.week-text {
+  fill: fb-white;
+  font-size: 30;
+  text-length: 1;
+  y: 100%-10;
+}
+
+#week-text-1 {
+  x: 3%;
+}
+
+#week-text-2 {
+  x: 17%;
+}
+
+#week-text-3 {
+  x: 31%;
+}
+
+#week-text-4 {
+  x: 45%;
+}
+
+#week-text-5 {
+  x: 59%;
+}
+
+#week-text-6 {
+  x: 73%;
+}
+
+#week-text-7 {
+  x: 87%;
+}
+
+/* Settings View */
+
 .settings-text {
   fill: fb-white;
   x: 7;
