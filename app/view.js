@@ -12,6 +12,8 @@ const goalText = document.getElementById('txt-goal');
 const addGoalButton = document.getElementById('btn-add-goal');
 const subGoalButton = document.getElementById('btn-sub-goal');
 
+const CHART_HEIGHT = 200;
+
 export function onSettingsClick(listener) {
     settingsButton.addEventListener('click', listener);
 }
@@ -23,6 +25,26 @@ export function render(pushups) {
         pushups.today.goalMet ? 'inline' : 'none';
 
     goalText.text = `Goal: ${pushups.settings.goal} push-ups`;
+
+    renderWeekChart(pushups);
+}
+
+function renderWeekChart(pushups) {
+    const week = pushups.week;
+    const maxPushups =  week.reduce((acc, record) => {
+        return Math.max(acc, record.pushups || 0);
+    }, 0);
+
+    // Height is inverted. For a maximum height bar, y is set to 0%;
+    for (let i=0; i<week.length; i++) {
+        const y = Math.floor(CHART_HEIGHT * (1 - week[i].pushups / maxPushups));
+        const rect = document.getElementById(`week-data-${i + 1}`);
+        rect.y = y;
+        rect.style.opacity = week[i].goalMet ? 1 : .5;
+
+        const text = document.getElementById(`week-text-${i + 1}`);
+        text.text = week[i].label;
+    }
 }
 
 export function onAddClickLongPress(onClick, onLongPress) {

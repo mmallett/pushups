@@ -45,6 +45,44 @@ export class Pushups {
     }
 
     get week() {
+        return [
+            {
+                pushups: 10,
+                goalMet: false,
+                label: 'S',
+            },
+            {
+                pushups: 20,
+                goalMet: false,
+                label: 'S',
+            },
+            {
+                pushups: 30,
+                goalMet: true,
+                label: 'M',
+            },
+            {
+                pushups: 40,
+                goalMet: true,
+                label: 'T',
+            },
+            {
+                pushups: 20,
+                goalMet: false,
+                label: 'W',
+            },
+            {
+                pushups: 0,
+                goalMet: false,
+                label: 'T',
+            },
+            {
+                pushups: 35,
+                goalMet: true,
+                label: 'F',
+            },
+        ];
+
         const LABELS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
         const MS_PER_DAY = 864e5;
         const today = new Date();

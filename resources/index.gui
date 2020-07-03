@@ -2,7 +2,7 @@
   <rect id="background" />
 
   <rect id="main-view" class="view">
-  <use id="container" href="#panoramaview">
+  <use id="main-panorama" href="#panoramaview">
     <use id="today-view-item" href="#panoramaview-item">
      <rect id="today-view">
         <text id="txt-today" class="header">Today</text>
