@@ -22,7 +22,7 @@ export function render(pushups) {
     imgGoalComplete.style.display =
         pushups.today.goalMet ? 'inline' : 'none';
 
-    goalText.text = `Goal: ${pushups.settings.goal} pushups`;
+    goalText.text = `Goal: ${pushups.settings.goal} push-ups`;
 }
 
 export function onAddClickLongPress(onClick, onLongPress) {

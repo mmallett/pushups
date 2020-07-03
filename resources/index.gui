@@ -10,7 +10,7 @@
         <arc id="arc-goal-progress" class="arc-goal"/>
         <image id="img-goal-complete" href="btn_combo_check_p.png" display="none"/>
         <text id="txt-count">0</text>
-        <text id="txt-pushups">pushups</text>
+        <text id="txt-pushups">push-ups</text>
 
         <!-- BOTTOM RIGHT -->
         <use id="btn-add" href="#combo-button-lower-right" fill="fb-peach">
@@ -53,7 +53,7 @@
   <rect id="settings-view" class="view" display="none">
     <text id="txt-settings" class="header">Settings</text>
     <section y="$">
-      <text id="txt-goal" class="settings-text" y="0">Goal: 30 pushups</text>
+      <text id="txt-goal" class="settings-text" y="0">Goal: 30 push-ups</text>
       <use id="btn-sub-goal" class="settings-button" href="#square-button">
         <set href="#text" attributeName="text-buffer" to="-"/>
       </use>
