@@ -2,31 +2,68 @@
   <rect id="background" />
 
   <rect id="main-view" class="view">
-    <text id="txt-today" class="header">Today</text>
-    <arc id="arc-goal-outline" class="arc-goal"/>
-    <arc id="arc-goal-progress" class="arc-goal"/>
-    <image id="img-goal-complete" href="btn_combo_check_p.png" display="none"/>
-    <text id="txt-count">0</text>
-    <text id="txt-pushups">push-ups</text>
+  <use id="main-panorama" href="#panoramaview">
+    <use id="today-view-item" href="#panoramaview-item">
+     <rect id="today-view">
+        <text id="txt-today" class="header">Today</text>
+        <arc id="arc-goal-outline" class="arc-goal"/>
+        <arc id="arc-goal-progress" class="arc-goal"/>
+        <image id="img-goal-complete" href="btn_combo_check_p.png" display="none"/>
+        <text id="txt-count">0</text>
+        <text id="txt-pushups">push-ups</text>
+      </rect>
+    </use>
+    <use id="week-view-item" href="#panoramaview-item">
+      <rect width="100%" height="100%">
+        <text id="txt-week" class="header">Week</text>
 
-    <!-- TOP RIGHT -->
-    <use id="btn-settings" href="#combo-button-upper-right" fill="fb-white">
-      <set href="combo-button-icon" attributeName="href" to="btn_combo_cog_p.png"/>
-      <set href="combo-button-icon-press" attributeName="href" to="btn_combo_cog_p.png"/>
-    </use>
-    <!-- BOTTOM RIGHT -->
-    <use id="btn-add" href="#combo-button-lower-right" fill="fb-peach">
-      <set href="combo-button-icon" attributeName="href" to="sqr_btn_plus_p.png"/>
-      <set href="combo-button-icon-press" attributeName="href" to="sqr_btn_plus_p.png"/>
-      <set href="combo-button-stroke" attributeName="display" to="inline"/>
+        <svg id="week-chart">
+          <rect id="week-data-1" class="week-data" />
+          <rect id="week-data-2" class="week-data" />
+          <rect id="week-data-3" class="week-data" />
+          <rect id="week-data-4" class="week-data" />
+          <rect id="week-data-5" class="week-data" />
+          <rect id="week-data-6" class="week-data" />
+          <rect id="week-data-7" class="week-data" />
+
+          <text id="week-text-1" class="week-text">S</text>
+          <text id="week-text-2" class="week-text">M</text>
+          <text id="week-text-3" class="week-text">T</text>
+          <text id="week-text-4" class="week-text">W</text>
+          <text id="week-text-5" class="week-text">T</text>
+          <text id="week-text-6" class="week-text">F</text>
+          <text id="week-text-7" class="week-text">S</text>
+        </svg>
+
+      </rect>
     </use>
 
-    <use id="btn-sub" href="#combo-button-lower-left" fill="fb-white">
-      <set href="combo-button-icon" attributeName="href" to="sqr_btn_minus_p.png"/>
-      <set href="combo-button-icon-press" attributeName="href" to="sqr_btn_minus_p.png"/>
-      <set href="combo-button-stroke" attributeName="display" to="inline"/>
+    <use id="pagination-dots" href="#pagination-widget" y="8">
+      <use href="#pagination-dot" />
+      <use href="#pagination-dot" />
+      <use href="#pagination-highlight-dot" />
     </use>
+  </use>
   </rect>
+
+  <!-- TOP RIGHT -->
+  <use id="btn-settings" href="#combo-button-upper-right" fill="fb-white">
+    <set href="combo-button-icon" attributeName="href" to="btn_combo_cog_p.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="btn_combo_cog_p.png"/>
+  </use>
+
+  <!-- BOTTOM RIGHT -->
+  <use id="btn-add" href="#combo-button-lower-right" fill="fb-peach">
+    <set href="combo-button-icon" attributeName="href" to="sqr_btn_plus_p.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="sqr_btn_plus_p.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+
+  <use id="btn-sub" href="#combo-button-lower-left" fill="fb-white">
+    <set href="combo-button-icon" attributeName="href" to="sqr_btn_minus_p.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="sqr_btn_minus_p.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
 
   <rect id="settings-view" class="view" display="none">
     <text id="txt-settings" class="header">Settings</text>
