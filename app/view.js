@@ -100,6 +100,7 @@ export function showView(view) {
     document.getElementsByClassName('view').forEach((element) => {
         element.style.display = element.id === view ? 'inline' : 'none';
     });
+    view === 'main-view' ? showAddSubButtons() : hideAddSubButtons();
 }
 
 export function onSaveSettingsClick(listener) {
