@@ -1,6 +1,9 @@
 import document from 'document';
 import {vibration} from 'haptics';
 
+export const MAIN_PANORAMA_TODAY = 0;
+export const MAIN_PANORAMA_WEEK = 1;
+
 const pushupCountText = document.getElementById('txt-count');
 const settingsButton = document.getElementById('btn-settings');
 const addButton = document.getElementById('btn-add');
@@ -11,6 +14,7 @@ const saveSettingsButton = document.getElementById('btn-save-settings');
 const goalText = document.getElementById('txt-goal');
 const addGoalButton = document.getElementById('btn-add-goal');
 const subGoalButton = document.getElementById('btn-sub-goal');
+const mainPanorama = document.getElementById('main-panorama');
 
 const CHART_HEIGHT = 200;
 
@@ -33,7 +37,7 @@ function renderWeekChart(pushups) {
     const week = pushups.week;
     const maxPushups =  week.reduce((acc, record) => {
         return Math.max(acc, record.pushups || 0);
-    }, 0);
+    }, 1);
 
     // Height is inverted. For a maximum height bar, y is set to 0%;
     for (let i=0; i<week.length; i++) {
@@ -108,4 +112,18 @@ export function onAddGoalClickLongPress(onClick, onLongPress) {
 
 export function onSubGoalClickLongPress(onClick, onLongPress) {
     attachClickLongPressListener(subGoalButton, onClick, onLongPress);
+}
+
+export function onMainPanoramaChange(onChange) {
+    mainPanorama.addEventListener('select', () => onChange(mainPanorama.value));
+}
+
+export function showAddSubButtons() {
+    addButton.style.display = 'inline';
+    subButton.style.display = 'inline';
+}
+
+export function hideAddSubButtons() {
+    addButton.style.display = 'none';
+    subButton.style.display = 'none';
 }

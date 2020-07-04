@@ -11,19 +11,6 @@
         <image id="img-goal-complete" href="btn_combo_check_p.png" display="none"/>
         <text id="txt-count">0</text>
         <text id="txt-pushups">push-ups</text>
-
-        <!-- BOTTOM RIGHT -->
-        <use id="btn-add" href="#combo-button-lower-right" fill="fb-peach">
-          <set href="combo-button-icon" attributeName="href" to="sqr_btn_plus_p.png"/>
-          <set href="combo-button-icon-press" attributeName="href" to="sqr_btn_plus_p.png"/>
-          <set href="combo-button-stroke" attributeName="display" to="inline"/>
-        </use>
-
-        <use id="btn-sub" href="#combo-button-lower-left" fill="fb-white">
-          <set href="combo-button-icon" attributeName="href" to="sqr_btn_minus_p.png"/>
-          <set href="combo-button-icon-press" attributeName="href" to="sqr_btn_minus_p.png"/>
-          <set href="combo-button-stroke" attributeName="display" to="inline"/>
-        </use>
       </rect>
     </use>
     <use id="week-view-item" href="#panoramaview-item">
@@ -63,6 +50,19 @@
   <use id="btn-settings" href="#combo-button-upper-right" fill="fb-white">
     <set href="combo-button-icon" attributeName="href" to="btn_combo_cog_p.png"/>
     <set href="combo-button-icon-press" attributeName="href" to="btn_combo_cog_p.png"/>
+  </use>
+
+  <!-- BOTTOM RIGHT -->
+  <use id="btn-add" href="#combo-button-lower-right" fill="fb-peach">
+    <set href="combo-button-icon" attributeName="href" to="sqr_btn_plus_p.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="sqr_btn_plus_p.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+
+  <use id="btn-sub" href="#combo-button-lower-left" fill="fb-white">
+    <set href="combo-button-icon" attributeName="href" to="sqr_btn_minus_p.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="sqr_btn_minus_p.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
   </use>
 
   <rect id="settings-view" class="view" display="none">

@@ -45,50 +45,14 @@ export class Pushups {
     }
 
     get week() {
-        return [
-            {
-                pushups: 10,
-                goalMet: false,
-                label: 'S',
-            },
-            {
-                pushups: 20,
-                goalMet: false,
-                label: 'S',
-            },
-            {
-                pushups: 30,
-                goalMet: true,
-                label: 'M',
-            },
-            {
-                pushups: 40,
-                goalMet: true,
-                label: 'T',
-            },
-            {
-                pushups: 20,
-                goalMet: false,
-                label: 'W',
-            },
-            {
-                pushups: 0,
-                goalMet: false,
-                label: 'T',
-            },
-            {
-                pushups: 35,
-                goalMet: true,
-                label: 'F',
-            },
-        ];
-
         const LABELS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
         const MS_PER_DAY = 864e5;
         const today = new Date();
-        return [...Array(7).keys()]
-        .map(i => 
-            new Date(today.getValue() - MS_PER_DAY * i))
+
+        return [0, 1, 2, 3, 4, 5, 6]
+        .map(i => {
+            return new Date(today.getTime() - MS_PER_DAY * i);
+        })
         .map(date => {
             const id = this._getIdFromDate(date);
             const record = this._findRecordById(id) || {
@@ -99,7 +63,8 @@ export class Pushups {
                 ...record,
                 label: LABELS[date.getDay()],
             };
-        });
+        })
+        .reverse();
     }
 
     get settings() {

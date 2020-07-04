@@ -55,3 +55,11 @@ const onSubGoalLongPress = () => {
     updateGoal(-10);
 };
 view.onSubGoalClickLongPress(onSubGoalClick, onSubGoalLongPress);
+
+view.onMainPanoramaChange((value) => {
+    if (value === view.MAIN_PANORAMA_TODAY) {
+        view.showAddSubButtons();
+    } else {
+        view.hideAddSubButtons();
+    }
+})
