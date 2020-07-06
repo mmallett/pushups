@@ -8,6 +8,8 @@ const INITIAL_PUSHUP_DB = {
     },
 };
 
+const MS_PER_DAY = 864e5;
+
 /*
 Pushups DB schema
 
@@ -46,7 +48,6 @@ export class Pushups {
 
     get week() {
         const LABELS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-        const MS_PER_DAY = 864e5;
         const today = new Date();
 
         return [0, 1, 2, 3, 4, 5, 6]
@@ -106,6 +107,19 @@ export class Pushups {
         return `${date.getFullYear()}-${date.getMonth() +1}-${date.getDate()}`;
     }
 
+    _pruneOldData() {
+        const now = new Date();
+        const pruneBefore = new Date(now.getTime() - MS_PER_DAY * 10);
+
+        for (const id in Object.keys(this._pushupData.pushups)) {
+            const record = this._findRecordById(key);
+            const timestamp = Date.parse(record.date);
+            if (timestamp < pruneBefore) {
+                delete this._pushupData.pushups[id];
+            }
+        }
+    }
+
     _writeDb() {
         // schedule async write to keep the app responsive
         // don't block on IO
@@ -113,6 +127,7 @@ export class Pushups {
             clearTimeout(this._writeTimeout);
         }
         this._writeTimeout = setTimeout(() => {
+            this._pruneOldData();
             fs.writeFileSync(PUSHUP_DB_FILE, this._pushupData, 'cbor'); 
         }, 500);        
     }
