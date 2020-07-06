@@ -1,12 +1,14 @@
 import * as fs from 'fs';
 
 const PUSHUP_DB_FILE = 'pushup_db.cbor';
-const INITIAL_PUSHUP_DB = {
+export const INITIAL_PUSHUP_DB = {
     pushups: {},
     settings: {
         goal: 30
     },
 };
+
+const MS_PER_DAY = 864e5;
 
 /*
 Pushups DB schema
@@ -46,7 +48,6 @@ export class Pushups {
 
     get week() {
         const LABELS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-        const MS_PER_DAY = 864e5;
         const today = new Date();
 
         return [0, 1, 2, 3, 4, 5, 6]
@@ -106,6 +107,21 @@ export class Pushups {
         return `${date.getFullYear()}-${date.getMonth() +1}-${date.getDate()}`;
     }
 
+    _pruneOldData() {
+        const now = new Date();
+        const pruneBefore = new Date(now.getTime() - MS_PER_DAY * 10);
+
+        const newPushups = {};
+        for (const id of Object.keys(this._pushupData.pushups)) {
+            const record = this._findRecordById(id);
+            const timestamp = Date.parse(record.date);
+            if (timestamp >= pruneBefore) {
+                newPushups[id] = this._pushupData.pushups[id];
+            }
+        }
+        this._pushupData.pushups = newPushups;
+    }
+
     _writeDb() {
         // schedule async write to keep the app responsive
         // don't block on IO
@@ -113,6 +129,7 @@ export class Pushups {
             clearTimeout(this._writeTimeout);
         }
         this._writeTimeout = setTimeout(() => {
+            this._pruneOldData();
             fs.writeFileSync(PUSHUP_DB_FILE, this._pushupData, 'cbor'); 
         }, 500);        
     }

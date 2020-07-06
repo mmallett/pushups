@@ -17,3 +17,8 @@ npx fitbit
 fitbit$ bi
 ```
 
+## Test
+
+```
+npm test
+```

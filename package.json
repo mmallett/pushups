@@ -5,7 +5,10 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@fitbit/sdk": "~4.1.0",
-    "@fitbit/sdk-cli": "^1.7.1"
+    "@fitbit/sdk-cli": "^1.7.1",
+    "chai": "^4.2.0",
+    "esm": "^3.2.25",
+    "mocha": "^8.0.1"
   },
   "fitbit": {
     "appUUID": "f15251f4-9d44-44ba-9cf0-600fe64a149c",
@@ -25,6 +28,7 @@
   },
   "scripts": {
     "build": "fitbit-build",
-    "debug": "fitbit"
+    "debug": "fitbit",
+    "test": "mocha -r esm"
   }
 }
