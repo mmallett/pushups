@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
 const PUSHUP_DB_FILE = 'pushup_db.cbor';
-const INITIAL_PUSHUP_DB = {
+export const INITIAL_PUSHUP_DB = {
     pushups: {},
     settings: {
         goal: 30
@@ -111,13 +111,15 @@ export class Pushups {
         const now = new Date();
         const pruneBefore = new Date(now.getTime() - MS_PER_DAY * 10);
 
-        for (const id in Object.keys(this._pushupData.pushups)) {
-            const record = this._findRecordById(key);
+        const newPushups = {};
+        for (const id of Object.keys(this._pushupData.pushups)) {
+            const record = this._findRecordById(id);
             const timestamp = Date.parse(record.date);
-            if (timestamp < pruneBefore) {
-                delete this._pushupData.pushups[id];
+            if (timestamp >= pruneBefore) {
+                newPushups[id] = this._pushupData.pushups[id];
             }
         }
+        this._pushupData.pushups = newPushups;
     }
 
     _writeDb() {
