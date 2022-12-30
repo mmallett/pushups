@@ -8,7 +8,7 @@
     "@fitbit/sdk-cli": "^1.7.1",
     "chai": "^4.2.0",
     "esm": "^3.2.25",
-    "mocha": "^8.0.1"
+    "mocha": "^8.4.0"
   },
   "fitbit": {
     "appUUID": "f15251f4-9d44-44ba-9cf0-600fe64a149c",
